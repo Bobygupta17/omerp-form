@@ -171,11 +171,9 @@
                 <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
                   
                 
-                  <table class="table table-bordered" formArrayName="quantities">
+                  <table class="table table-bordered" formArrayName="tableform">
                     <thead class="thead-light">
                     <tr>
-                      <!-- <th colspan="2">Add Multiple Quantity:</th>
-                      <th width="150px"><button type="button" (click)="addQuantity()" class="btn btn-primary">Add More</button></th> -->
 
 
                       <th scope="col">Container No	</th>
@@ -194,14 +192,14 @@
                         <th scope="col">Cooling Period		</th>
                         <th scope="col" class="text-center">
                         
-                          <button mat-raised-button color="primary" aria-label="Example icon button with a add icon" class=" ml-auto" (click)="addQuantity()">
+                          <button mat-raised-button color="primary" aria-label="Example icon button with a add icon" class=" ml-auto" (click)="addnewtableform()">
                               Add Row 
                           </button>  
                         </th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr *ngFor="let quantity of quantities().controls; let i=index" [formGroupName]="i">
+                    <tr *ngFor="let quantity of tableform().controls; let i=index" [formGroupName]="i">
                         
                         <td>
                           
@@ -284,7 +282,7 @@
 
                                   <td class="
                                   text-center">
-                                    <button type="button" class="btn btn-danger mx-auto" (click)="removeQuantity(i)">x</button>
+                                    <button type="button" class="btn btn-danger mx-auto" (click)="removenewtableform(i)">x</button>
                                       
                                   </td>
     

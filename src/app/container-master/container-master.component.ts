@@ -20,15 +20,15 @@ export class ContainerMasterComponent implements OnInit {
    
     this.productForm = this.fb.group({
       name: '',
-      quantities: this.fb.array([]) ,
+      tableform: this.fb.array([]) ,
     });
   }
   
-  quantities() : FormArray {
-    return this.productForm.get("quantities") as FormArray
+  tableform() : FormArray {
+    return this.productForm.get("tableform") as FormArray
   }
    
-  newQuantity(): FormGroup {
+  newtableform(): FormGroup {
     return this.fb.group({
       containerno: '',
       containertype: '',
@@ -44,12 +44,12 @@ export class ContainerMasterComponent implements OnInit {
     })
   }
    
-  addQuantity() {
-    this.quantities().push(this.newQuantity());
+  addnewtableform() {
+    this.tableform().push(this.newtableform());
   }
    
-  removeQuantity(i:number) {
-    this.quantities().removeAt(i);
+  removenewtableform(i:number) {
+    this.tableform().removeAt(i);
   }
    
   onSubmit() {
