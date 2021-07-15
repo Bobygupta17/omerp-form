@@ -7,7 +7,7 @@
     </div>
 
     <div class="formarea">
-        <form>
+        <form class="px-5">
             <div class="row ">
                 <div class="col-md-6">
                     <mat-form-field appearance="outline" class="w-100 m-2">
@@ -145,7 +145,7 @@
                       </mat-form-field>
                 </div>
 
-                <div class="col-md-12">
+                <div class="col-md-4">
                     <mat-form-field appearance="outline" class="w-100">
                         <mat-label>Remark</mat-label>
                         <textarea matInput></textarea>
@@ -160,11 +160,25 @@
 
 
         <div class="table-data table-responsive">
-        
-                <table class="table">
+
+
+
+                <div class="tableform">
+            
+            <div class="container-fluid">
+  
+                
+                <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+                  
+                
+                  <table class="table table-bordered" formArrayName="quantities">
                     <thead class="thead-light">
-                      <tr>
-                        <th scope="col">Container No	</th>
+                    <tr>
+                      <!-- <th colspan="2">Add Multiple Quantity:</th>
+                      <th width="150px"><button type="button" (click)="addQuantity()" class="btn btn-primary">Add More</button></th> -->
+
+
+                      <th scope="col">Container No	</th>
                         <th scope="col">Container Type	</th>
                         <th scope="col">Asset/SAP Code	</th>
                         <th scope="col">Size</th>
@@ -178,117 +192,119 @@
                         
                         <th scope="col">Location	</th>
                         <th scope="col">Cooling Period		</th>
-                        <th scope="col">Action	</th>
-
-
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
+                        <th scope="col" class="text-center">
+                        
+                          <button mat-raised-button color="primary" aria-label="Example icon button with a add icon" class=" ml-auto" (click)="addQuantity()">
+                              Add Row 
+                          </button>  
+                        </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let quantity of quantities().controls; let i=index" [formGroupName]="i">
                         
                         <td>
-                            <mat-form-field appearance="outline" class="w-100">
-                                <mat-label>Container No.
-                                </mat-label>
-                                <input matInput placeholder="Placeholder">
-                              </mat-form-field></td>
+                          
+                          <input type="text" formControlName="containerno" class="form-control" placeholder="Container No.">
+                            
+                            </td>
 
                               <td>
-                                <mat-form-field appearance="outline" class="w-100">
-                                    <mat-label>Container Type</mat-label>
-                                    <mat-select>
-                                        <mat-option>Option</mat-option>
-                                      </mat-select>
-                                  </mat-form-field>
+
+                                
+                          <input type="text" formControlName="containertype" class="form-control" placeholder="Container Type">
+                            
                               </td>
 
                               <td>
-                                <mat-form-field appearance="outline" class="w-100">
-                                    <mat-label>Asset/SAP Code	
-                                    </mat-label>
-                                    <input matInput placeholder="Placeholder">
-                                  </mat-form-field></td>
+                                <input type="text" formControlName="assetsapcode" class="form-control" placeholder="Asset/SAP Code	">
+
+                                </td>
 
                                   
                               <td>
-                                <mat-form-field appearance="outline" class="w-100">
-                                    <mat-label>Size</mat-label>
-                                    <mat-select>
-                                        <mat-option>Option</mat-option>
-                                      </mat-select>
-                                  </mat-form-field>
+                                  <select formControlName="size" class="form-control">
+                                    <option>Option</option>
+                                  </select>
+                              </td>
+
+
+                              
+                              <td>
+
+                                
+                                <select formControlName="Unit" class="form-control">
+                                  <option>Option</option>
+                                </select>
+
                               </td>
 
                               
                               <td>
-                                <mat-form-field appearance="outline" class="w-100">
-                                    <mat-label>Unit</mat-label>
-                                    <mat-select>
-                                        <mat-option>Option</mat-option>
-                                      </mat-select>
-                                  </mat-form-field>
-                              </td>
+                                
+                                <select formControlName="Rate" class="form-control">
+                                  <option>Option</option>
+                                </select>
 
-                              
-                              <td>
-                                <mat-form-field appearance="outline" class="w-100">
-                                    <mat-label>Rate	
-                                    </mat-label>
-                                    <input matInput placeholder="Placeholder">
-                                  </mat-form-field></td>
+                                </td>
 
                                   <td>
-                                    <mat-form-field appearance="outline" class="w-100">
+                                    <!-- <mat-form-field appearance="outline" class="w-100" formControlName="formdate">
                                         <mat-label>From Date</mat-label>
-                                        <input matInput [matDatepicker]="picker5">
-                                        <mat-datepicker-toggle matSuffix [for]="picker5"></mat-datepicker-toggle>
-                                        <mat-datepicker #picker5    ></mat-datepicker>
-                                      </mat-form-field> 
+                                        <input matInput >
+                                      </mat-form-field>  -->
+
+                                      <input type="text" formControlName="formdate" class="form-control" placeholder="	">
+                                      
                                   </td>
 
 
                                   
                                   <td>
-                                    <mat-form-field appearance="outline" class="w-100">
-                                        <mat-label>to Date</mat-label>
-                                        <input matInput [matDatepicker]="picker6">
-                                        <mat-datepicker-toggle matSuffix [for]="picker6"></mat-datepicker-toggle>
-                                        <mat-datepicker #picker6    ></mat-datepicker>
-                                      </mat-form-field> 
+
+                                      
+                                    
+                                <input type="text" formControlName="todate" class="form-control" placeholder="	">
                                   </td>
 
                                   <td>
-                                    <mat-form-field appearance="outline" class="w-100">
-                                        <mat-label>Location	</mat-label>
-                                        <mat-select>
-                                            <mat-option>Option</mat-option>
-                                          </mat-select>
-                                      </mat-form-field>
-                                  </td>
+                                
+
+                                    
+                                <input type="text" formControlName="location" class="form-control" placeholder="Location	">
+    
+                                    </td>
+                                  
 
                                   
                               <td>
-                                <mat-form-field appearance="outline" class="w-100">
-                                    <mat-label>Cooling Period		
-                                    </mat-label>
-                                    <input matInput placeholder="Placeholder">
-                                  </mat-form-field></td>
+                                
+                                <input type="text" formControlName="coolingperiod" class="form-control" placeholder="Cooling period	">
+                                </td>
 
-                                  <td>
-                                    <button mat-mini-fab color="primary" aria-label="Example icon button with a add icon" class="mt-2">
-                                        <mat-icon>add</mat-icon>
-                                      </button>
-
-                                      <button mat-mini-fab color="disabled" aria-label="Example icon button with a delete icon" class="ml-2 mt-2">
-                                        <mat-icon>delete</mat-icon>
-                                      </button>
+                                  <td class="
+                                  text-center">
+                                    <button type="button" class="btn btn-danger mx-auto" (click)="removeQuantity(i)">x</button>
+                                      
                                   </td>
     
                      </tr>
-                      
                     </tbody>
+                  </table>
+
                   
-            </table>
+                 
+                  
+                </form>
+                  
+                
+              </div>
+            </div>
+
+        
+
+
+
         </div>
     </div>
 </div>

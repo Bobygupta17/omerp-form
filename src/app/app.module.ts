@@ -8,16 +8,20 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
-import { ContainermasterComponent } from './containermaster/containermaster.component';
+
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import { MatSelectModule} from '@angular/material/select/';
 import {MatTableModule} from '@angular/material/table';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ContainerMasterComponent } from './container-master/container-master.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    ContainermasterComponent
+    ContainerMasterComponent,
+  
   ],
   imports: [
     BrowserModule,
@@ -30,7 +34,8 @@ import {MatTableModule} from '@angular/material/table';
     MatIconModule,
     MatButtonModule,
     MatSelectModule,
-    MatTableModule
+    MatTableModule,
+    FormsModule, ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

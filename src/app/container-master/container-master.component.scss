@@ -1,0 +1,26 @@
+.page-head{
+    h2{
+        color: white;
+        background: #004872;
+        padding: 15px;
+        font-size: 20px;
+    }
+    td{
+        font-size: 13px;
+    }
+}
+
+.tableform{
+    .col-1{
+        padding: 0 5px;
+    }
+    th{
+        vertical-align: middle;
+    }
+    td::placeholder{
+        font-size: 12px;
+    }
+    td{
+        font-size: 12px;
+    }
+}
